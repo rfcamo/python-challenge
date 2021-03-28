@@ -39,13 +39,12 @@ with open(data_source) as budget_data:
         revenue_change_list = revenue_change_list + [revenue_change]
         change_month = change_month + [row["Date"]]
 
-        # Greatest increase
+        # Greatest increase and decrease
         if revenue_change > great_increase[1]:
             great_increase[0] = row["Date"]
             great_increase[1] = revenue_change
-
-        # Greatest decrease
-        if revenue_change < great_decrease[1]:
+        else:
+            revenue_change < great_decrease[1]
             great_decrease[0] = row["Date"]
             great_decrease[1] = revenue_change
     

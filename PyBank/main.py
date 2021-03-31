@@ -50,8 +50,6 @@ with open(data_source) as budget_data:
             great_decrease[1] = revenue_change
     
 # Average Revenue Change
-print(sum(revenue_change_list))
-print(len(revenue_change_list))
 avg_revenue = sum(revenue_change_list) / len(revenue_change_list)
 
 # Summary Output

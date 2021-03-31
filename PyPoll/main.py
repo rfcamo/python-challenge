@@ -18,7 +18,7 @@ with open(data_source, newline='') as election_data:
 
         next(reader)
 		
-		# Loop to the rows
+	# Loop to the rows
         for row in reader:
             if row[2] not in candidates:
                 candidates.append(row[2])
@@ -28,14 +28,14 @@ with open(data_source, newline='') as election_data:
                 vote_numbers[index] += 1
             total_votes += 1
 		
-		#Calculate vote percentages
+	#Calculate vote percentages
         for votes in vote_numbers:
             percentages = "{0:.3f}".format(round((votes/total_votes)*100, 2))
             vote_percentage.append(percentages) 
         
-		# Output winning candidate
+	# Output winning candidate
         winning_candidate = vote_percentage.index(max(vote_percentage))
-		# Output winning candidate
+	# Output winning candidate
         winner = candidates[winning_candidate]
             
 		

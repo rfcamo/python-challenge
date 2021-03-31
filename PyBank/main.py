@@ -29,7 +29,7 @@ with open(data_source) as budget_data:
 	
     for row in reader:
 	
-		# Totals
+	# Totals
         total_months = total_months + 1
         total_revenue = total_revenue + int(row["Profit/Losses"])
 
@@ -39,16 +39,19 @@ with open(data_source) as budget_data:
         revenue_change_list = revenue_change_list + [revenue_change]
         change_month = change_month + [row["Date"]]
 
-        # Greatest increase and decrease
+        # Greatest increase
         if revenue_change > great_increase[1]:
             great_increase[0] = row["Date"]
             great_increase[1] = revenue_change
-        else:
-            revenue_change < great_decrease[1]
+
+        # Greatest decrease
+        if revenue_change < great_decrease[1]:
             great_decrease[0] = row["Date"]
             great_decrease[1] = revenue_change
     
 # Average Revenue Change
+print(sum(revenue_change_list))
+print(len(revenue_change_list))
 avg_revenue = sum(revenue_change_list) / len(revenue_change_list)
 
 # Summary Output
